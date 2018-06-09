@@ -7,7 +7,7 @@ const concat = require('gulp-concat');
 const sass = require('gulp-sass');
 
 gulp.task('img',()=>{
-  gulp.src('./src/images/**/*')
+  gulp.src('./src/images/*')
   .pipe(imagemin())
   .pipe(gulp.dest('./dist/images/'))
   .pipe(browserSync.stream());
@@ -20,14 +20,14 @@ gulp.task('html',()=>{
 })
 
 gulp.task('css',()=>{
-  gulp.src('./src/styles/**/*.css')
+  gulp.src('./src/styles/*.css')
   .pipe(cleanCSS())
   .pipe(gulp.dest('./dist/styles/'))
   .pipe(browserSync.stream());
 });
 
 gulp.task('js',()=>{
-  gulp.src('./src/scripts/**/*.js')
+  gulp.src('./src/scripts/*.js')
   .pipe(concat('all.js'))
   .pipe(uglify())
   .pipe(gulp.dest('./dist/scripts'))
